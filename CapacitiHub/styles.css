@@ -328,17 +328,18 @@ section {
 }
 
 .member-avatar {
-    width: 80px;
-    height: 80px;
+    width: 200px;
+    height: 200px;
     background: var(--pink);
-    border-radius: 50%;
-    display: flex;
+    /*border-radius: 50%;*/
+    display: inside;
     align-items: center;
     justify-content: center;
     margin: 0 auto 20px;
     color: var(--space-kadet);
     font-size: 2rem;
 }
+
 
 .team-member h4 {
     font-size: 1.2rem;
