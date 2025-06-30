@@ -1,7 +1,7 @@
 :root {
     --space-kadet: #1D2951;
-    --purple: #7F85D0;
-    --salmon: #F29261;
+    --purple: #6115D0;
+    --salmon: #F25251;
     --pink: #F1D1D1;
     --white: #ffffff;
     --light-gray: #f8f9fa;
@@ -62,15 +62,14 @@ html {
     color: var(--space-kadet);
 }
 
-.logo-icon {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, var(--purple), var(--salmon));
+.logo-img {
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
+    object-fit: contain; /* or remove this if the image already fits well */
+    background-color: white; /* optional: prevents visual cuts */
+    padding: 5px; /* optional: gives breathing room inside the circle */
+    box-sizing: border-box; /* ensures padding doesn't break layout */
 }
 
 .nav-menu {
@@ -121,7 +120,10 @@ html {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, var(--pink) 0%, var(--salmon) 100%);
+    background-image: url('images/background.png'); /* Adjust path as needed */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     padding: 120px 0 80px;
     min-height: 100vh;
     display: flex;
