@@ -602,6 +602,10 @@ section {
 }
 
 /* Impact Section */
+.impact {
+    background: var(--pink);
+}
+
 .impact-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -692,11 +696,11 @@ section {
 }
 
 .partner-logo {
-    background: white;
+    background: var(--space-kadet);
     padding: 30px;
     border-radius: 10px;
     font-weight: 600;
-    color: var(--text-light);
+    color: var(--white);
     text-align: center;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
@@ -736,13 +740,55 @@ section {
     line-height: 1.6;
 }
 
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    max-height: 400px; /* Limit the height */
+    margin: 40px auto 0;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.slide {
+    display: none;
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills without distortion */
+    border-radius: 10px;
+}
+
+.fade {
+    animation: fadeEffect 1s ease-in-out;
+}
+
+@keyframes fadeEffect {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+
 /* Opportunities Section */
+.opportunities {
+    background-image: url('images/background.png'); /* Adjust path as needed */
+}
 .opportunities-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
+.section-subtitle{
+    text-align: center;
+    color: var(--purple);
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
 .opportunity-card {
     background: white;
     padding: 40px 30px;
@@ -764,7 +810,7 @@ section {
 }
 
 .opportunity-card p {
-    color: var(--text-light);
+    color: var(--text-dark);
     line-height: 1.6;
     margin-bottom: 25px;
 }
@@ -787,8 +833,9 @@ section {
     align-items: center;
     gap: 10px;
     font-weight: 700;
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+    font-size: 2rem;
+    margin-bottom: 15px;
+
 }
 
 .contact-description {
