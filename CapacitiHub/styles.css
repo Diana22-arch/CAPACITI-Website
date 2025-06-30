@@ -329,6 +329,7 @@ section {
 }
 
 .member-avatar {
+    border: 2px solid var(--purple);
     width: 200px;
     height: 200px;
     background: var(--pink);
@@ -402,11 +403,22 @@ section {
 
 /* Programmes Section */
 .programmes {
-    background: var(--light-gray);
+    background: var(--space-kadet);
+    counter-reset: var(--white);
 }
 
 .programmes-header {
     margin-bottom: 40px;
+}
+
+.section-title{
+    color: var(--white);
+}
+
+.p-section-subtitle{
+    color: #ffffff;
+    text-align: center;
+    
 }
 
 .programme-filters {
@@ -421,7 +433,7 @@ section {
     padding: 10px 25px;
     border: 2px solid var(--purple);
     background: transparent;
-    color: var(--purple);
+    color: var(--white);
     border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -472,7 +484,7 @@ section {
 }
 
 .programme-header.design {
-    background: var(--space-kadet);
+    background: var(--white);
 }
 
 .programme-header.infrastructure {
@@ -743,7 +755,7 @@ section {
 .slideshow-container {
     position: relative;
     max-width: 100%;
-    max-height: 400px; /* Limit the height */
+    max-height: 500px; /* Limit the height */
     margin: 40px auto 0;
     overflow: hidden;
     border-radius: 10px;
@@ -775,6 +787,15 @@ section {
 .opportunities {
     background-image: url('images/background.png'); /* Adjust path as needed */
 }
+
+.o-section-title{
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--space-kadet);
+}
+
 .opportunities-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
