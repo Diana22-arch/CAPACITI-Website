@@ -175,18 +175,35 @@ if (careerGuidanceBtn) {
     });
 }
 
-// Opportunity card button functionality
 document.querySelectorAll('.opportunity-card .btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        const buttonText = e.target.textContent;
-        const messages = {
-            'View Openings': 'Redirecting to our careers page...',
-            'Become a Partner': 'Thank you for your interest in partnering with CAPACITI! Our team will contact you soon.',
-            'Get Involved': 'Thank you for your interest in volunteering! We will be in touch with opportunities that match your skills.'
-        };
-        
-        alert(messages[buttonText] || 'Thank you for your interest!');
-    });
+  btn.addEventListener('click', (e) => {
+    const buttonText = e.target.textContent.trim();
+    const messages = {
+      'View Openings': 'Redirecting to our news & insights page...',
+      'Become a Partner': 'Thank you for your interest in partnering with CAPACITI! Redirecting now...',
+      'Get Involved': 'Thank you for your interest in getting involved! Redirecting now...'
+    };
+
+    alert(messages[buttonText] || 'Thank you for your interest!');
+
+    if (buttonText === 'View Openings') {
+      setTimeout(() => {
+        window.location.href = 'https://uvuafrica.com/news-insights/';
+      }, 1000);
+    }
+
+    if (buttonText === 'Become a Partner') {
+      setTimeout(() => {
+        window.location.href = 'https://uvuafrica.com/capaciti/';
+      }, 1000);
+    }
+
+    if (buttonText === 'Get Involved') {
+      setTimeout(() => {
+        window.location.href = 'https://uvuafrica.com/capaciti/';
+      }, 1000);
+    }
+  });
 });
 
 // Add loading animation
