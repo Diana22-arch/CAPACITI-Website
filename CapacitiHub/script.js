@@ -289,3 +289,69 @@ function showSlides() {
 document.addEventListener("DOMContentLoaded", function () {
     showSlides();
 });
+
+// chatbot for CAPACITI
+document.addEventListener("DOMContentLoaded", () => {
+  const chatIcon = document.getElementById("chat-icon");
+  const chatBox = document.getElementById("chat-box");
+  const closeChat = document.getElementById("close-chat");
+  const chatInput = document.getElementById("chat-input");
+  const sendBtn = document.getElementById("send-btn");
+  const chatContent = document.getElementById("chat-content");
+
+  chatIcon.addEventListener("click", () => {
+    chatBox.classList.remove("hidden");
+    chatIcon.style.display = "none";
+  });
+
+  closeChat.addEventListener("click", () => {
+    chatBox.classList.add("hidden");
+    chatIcon.style.display = "block";
+  });
+
+  sendBtn.addEventListener("click", sendMessage);
+  chatInput.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") sendMessage();
+  });
+
+  function sendMessage() {
+    const input = chatInput.value.trim();
+    if (input === "") return;
+
+    appendMessage("user", input);
+    respond(input);
+    chatInput.value = "";
+  }
+
+  function appendMessage(type, text) {
+    const msg = document.createElement("div");
+    msg.className = type === "user" ? "user-message" : "bot-message";
+    msg.textContent = text;
+    chatContent.appendChild(msg);
+    chatContent.scrollTop = chatContent.scrollHeight;
+  }
+
+  function respond(input) {
+    const msg = input.toLowerCase();
+    let response = "Sorry, I’m not sure how to answer that. Try asking something else about CAPACITI.";
+
+    if (msg.includes("what is capaciti") || msg.includes("about capaciti")) {
+      response = "CAPACITI is a skills development programme by the Cape Innovation and Technology Initiative (CiTi) that prepares young South Africans for careers in the digital and tech industries.";
+    } else if (msg.includes("who can apply") || msg.includes("requirements") || msg.includes("eligibility")) {
+      response = "CAPACITI is open to South African youth who are passionate about technology, especially those with qualifications in ICT, Computer Science, or related fields. Some programmes may require a degree or diploma.";
+    } else if (msg.includes("how to apply") || msg.includes("application process")) {
+      response = "You can apply by visiting CAPACITI’s official website and submitting an online application. Follow them on social media for updates on application openings.";
+    } else if (msg.includes("cost") || msg.includes("free") || msg.includes("pay")) {
+      response = "CAPACITI programmes are free to participants. In fact, successful candidates often receive a stipend to assist with travel and meals.";
+    } else if (msg.includes("duration") || msg.includes("how long") || msg.includes("length")) {
+      response = "The duration depends on the specific programme. Most CAPACITI training programmes run for 6 to 12 months.";
+    } else if (msg.includes("location") || msg.includes("where")) {
+      response = "CAPACITI operates in multiple regions including Cape Town and Johannesburg. Some programmes are remote or hybrid.";
+    } else if (msg.includes("contact") || msg.includes("get in touch")) {
+      response = "You can contact CAPACITI through the CiTi website: www.citi.org.za, or email info@capaciti.org.za.";
+    }
+
+    setTimeout(() => appendMessage("bot", response), 500);
+  }
+});
+// End of CAPACITI chatbot code

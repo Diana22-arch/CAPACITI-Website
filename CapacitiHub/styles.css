@@ -226,7 +226,7 @@ section {
     font-weight: 700;
     text-align: center;
     margin-bottom: 20px;
-    color: var(--space-kadet);
+    color: var(--purple);
 }
 
 .section-subtitle {
@@ -411,12 +411,8 @@ section {
     margin-bottom: 40px;
 }
 
-.section-title{
-    color: var(--white);
-}
-
 .p-section-subtitle{
-    color: #ffffff;
+    color: var(--purple);
     text-align: center;
     
 }
@@ -1103,4 +1099,127 @@ section {
 .section-animate.animate {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Container */
+#chatbot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  z-index: 9999;
+}
+
+/* Chat Icon */
+#chat-icon {
+  background-color: var(--purple);
+  color: white;
+  font-size: 24px;
+  padding: 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Chat Box */
+#chat-box {
+  width: 320px;
+  height: 420px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Hide Chat Box Initially */
+#chat-box.hidden {
+  display: none !important;
+}
+
+
+/* Chat Header */
+.chat-header {
+  background: var(--salmon);
+  color: white;
+  padding: 12px;
+  position: relative;
+}
+
+.chat-header strong {
+  font-size: 16px;
+}
+
+.chat-header .subtext {
+  display: block;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+/* Close Button */
+#close-chat {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Chat Content */
+#chat-content {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+/* Message bubbles */
+.bot-message, .user-message {
+  padding: 8px 12px;
+  margin: 8px 0;
+  max-width: 80%;
+  border-radius: 16px;
+  line-height: 1.4;
+}
+
+.bot-message {
+  background: #f1e4ff;
+  color: var(--text-dark);
+  align-self: flex-start;
+}
+
+.user-message {
+  background: var(--purple);
+  color: white;
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+/* Input area */
+.chat-input-area {
+  display: flex;
+  border-top: 1px solid #ccc;
+}
+
+#chat-input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+#send-btn {
+  background: var(--purple);
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-left: 1px solid var(--purple);
 }
