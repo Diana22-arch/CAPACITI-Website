@@ -227,16 +227,26 @@ section {
     font-weight: 700;
     text-align: center;
     margin-bottom: 20px;
-    color: var(--space-kadet);
+    color: var(--purple);
 }
 
 .section-subtitle {
     font-size: 1.1rem;
     text-align: center;
-    color: var(--text-light);
+    color: var(--text-dark);
     max-width: 800px;
     margin: 0 auto 60px;
     line-height: 1.7;
+}
+
+.subtitle{
+  color: var(--space-kadet);
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  padding: 10px 10px;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 /* About Section */
@@ -412,12 +422,8 @@ section {
     margin-bottom: 40px;
 }
 
-.section-title{
-    color: var(--white);
-}
-
 .p-section-subtitle{
-    color: #ffffff;
+    color: var(--white);
     text-align: center;
     
 }
@@ -673,22 +679,44 @@ section {
 }
 
 .impact-stories {
-    text-align: center;
-    margin-bottom: 60px;
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f1d1d1;
 }
 
 .impact-stories h3 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: var(--space-kadet);
+  font-size: 2rem;
+  color: #14213d;
+  margin-bottom: 10px;
 }
 
 .impact-stories p {
-    color: var(--text-light);
-    max-width: 600px;
-    margin: 0 auto;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 40px;
 }
+
+.story-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.story-images img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.story-images img:hover {
+  transform: scale(1.03);
+}
+
 
 .partners-section {
     text-align: center;
@@ -803,14 +831,6 @@ section {
     gap: 30px;
 }
 
-.section-subtitle{
-    text-align: center;
-    color: var(--purple);
-    margin-bottom: 40px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
 .opportunity-card {
     background: white;
     padding: 40px 30px;
@@ -849,16 +869,27 @@ section {
     gap: 60px;
     margin-bottom: 60px;
 }
-
 .contact-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
     font-weight: 700;
     font-size: 2rem;
     margin-bottom: 15px;
-
 }
+
+.nav2-logo {
+    display: flex; /* fix: align logo + name side by side */
+    align-items: center;
+    gap: 10px;
+}
+
+.logo2 {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    padding: 5px;
+    box-sizing: border-box;
+    /* Removed border-radius to keep square shape */
+}
+
 
 .contact-description {
     color: rgba(255, 255, 255, 0.8);
@@ -1104,4 +1135,127 @@ section {
 .section-animate.animate {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Container */
+#chatbot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  z-index: 9999;
+}
+
+/* Chat Icon */
+#chat-icon {
+  background-color: var(--purple);
+  color: white;
+  font-size: 24px;
+  padding: 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Chat Box */
+#chat-box {
+  width: 320px;
+  height: 420px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Hide Chat Box Initially */
+#chat-box.hidden {
+  display: none !important;
+}
+
+
+/* Chat Header */
+.chat-header {
+  background: var(--salmon);
+  color: white;
+  padding: 12px;
+  position: relative;
+}
+
+.chat-header strong {
+  font-size: 16px;
+}
+
+.chat-header .subtext {
+  display: block;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+/* Close Button */
+#close-chat {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Chat Content */
+#chat-content {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+/* Message bubbles */
+.bot-message, .user-message {
+  padding: 8px 12px;
+  margin: 8px 0;
+  max-width: 80%;
+  border-radius: 16px;
+  line-height: 1.4;
+}
+
+.bot-message {
+  background: #f1e4ff;
+  color: var(--text-dark);
+  align-self: flex-start;
+}
+
+.user-message {
+  background: var(--purple);
+  color: white;
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+/* Input area */
+.chat-input-area {
+  display: flex;
+  border-top: 1px solid #ccc;
+}
+
+#chat-input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+#send-btn {
+  background: var(--purple);
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-left: 1px solid var(--purple);
 }
