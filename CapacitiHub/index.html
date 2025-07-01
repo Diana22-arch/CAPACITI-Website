@@ -432,7 +432,7 @@
     <!-- Our Work Section -->
     <section id="work" class="work">
         <div class="container">
-            <h2 class="section-title">Our Work</h2>
+            <h2 class="section-title">Our <span class="highlight-salmon">Work</span></h2>
             <p class="section-subtitle">
                 Discover our initiatives and projects that are shaping the future of digital education in Africa.
             </p>
@@ -555,6 +555,31 @@
             </div>
         </div>
     </section>
+
+    <div id="chatbot-container">
+        <!-- Floating Chat Icon -->
+        <div id="chat-icon" title="Ask Diana">💬</div>
+
+        <!-- Hidden Chat Box -->
+        <div id="chat-box" class="hidden">
+            <div class="chat-header">
+            <strong>CAPACITIBOT</strong>
+            <span class="subtext">Ask me about CAPACITI</span>
+            <button id="close-chat">✖</button>
+            </div>
+
+            <div id="chat-content">
+            <div class="bot-message">
+                Hello! I'm here to answer any questions about CAPACITI. What would you like to know?
+            </div>
+            </div>
+
+            <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Ask about Wisani's experience..." />
+            <button id="send-btn">➤</button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
