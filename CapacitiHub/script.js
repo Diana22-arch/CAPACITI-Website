@@ -355,3 +355,23 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 // End of CAPACITI chatbot code
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelectorAll(".hero-slide");
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) =>
+      slide.classList.toggle("active", i === index)
+    );
+  }
+
+  function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  console.log("Switching to slide:", currentSlide);
+  showSlide(currentSlide);
+  }
+
+  // Auto-switch every 6 seconds
+  setInterval(nextSlide, 6000);
+});
