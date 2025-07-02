@@ -931,11 +931,11 @@ section {
     gap: 10px;
 }
 
-.social-links {
+/* .social-links {
     display: flex;
     gap: 15px;
     margin-top: 20px;
-}
+} */
 
 .social-link {
     width: 40px;
