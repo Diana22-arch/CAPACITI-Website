@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAPACITI - Empowering The Workforce Of The Future</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -34,45 +34,97 @@
     </nav>
 
     <!-- Hero Section -->
-   <section id="home" class="hero">
-        <div class="hero-slider">
-
-        <!-- Slide 1 -->
-        <div class="hero-slide active">
-            <div class="hero-container">
-            <div class="hero-image">
-                <img src="images/image2.png" alt="Slide 1" class="hero-img">
-            </div>
-            <div class="hero-content">
-                <h1 class="hero-title">Slide One Title</h1>
-                <p class="hero-description">This is slide one.</p>
-                <div class="hero-buttons">
-                <button class="btn btn-primary">GET STARTED</button>
-                <button class="btn btn-secondary">LEARN MORE</button>
+    <section id="home" class="hero">
+        <div class="hero-slider" id="hero-slider">
+            <!-- Slide 1 - Team Meeting -->
+            <div class="hero-slide active">
+                <div class="hero-container">
+                    <div class="hero-image">
+                        <img src="images/image2.png" alt="Professional team collaboration" class="hero-img">
+                    </div>
+                    <div class="hero-content">
+                        <h1 class="hero-title">Empowering The Workforce
+                            <span class="highlight-salmon">Of The Future</span></h1>
+                        <p class="hero-description">Whether you're seeking new opportunities, building talent pipelines, or advocating for societal change in the digital landscape, we're your empowerment partner.</p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary">GET STARTED</button>
+                            <button class="btn btn-secondary">LEARN MORE</button>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
-            </div>
-        </div>
 
-        <!-- Slide 2 -->
-        <div class="hero-slide">
-            <div class="hero-container">
-            <div class="hero-image">
-                <img src="images/image3.jfif" alt="Slide 2" class="hero-img">
-            </div>
-            <div class="hero-content">
-                <h1 class="hero-title">Slide Two Title</h1>
-                <p class="hero-description">This is slide two.</p>
-                <div class="hero-buttons">
-                <button class="btn btn-primary">JOIN NOW</button>
-                <button class="btn btn-secondary">DISCOVER</button>
+            <!-- Slide 2 - Technology Workspace -->
+            <div class="hero-slide">
+                <div class="hero-container">
+                    <div class="hero-image">
+                        <img src="images/f-removeb.png" alt="Modern technology workspace" class="hero-img">
+                    </div>
+                    <div class="hero-content">
+                        <h1 class="hero-title">Transforming the Landscape of<span class="highlight-salmon">Tech Talent Development</span></h1>
+                        <p class="hero-description">Join us in democratising tech careers and fostering digital talent across the African continent.</p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary">VIEW PROGRAMMES</button>
+                            <button class="btn btn-secondary">OUR IMPACT</button>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
+
+            <!-- Slide 3 - Digital Transformation -->
+            <div class="hero-slide">
+                <div class="hero-container">
+                    <div class="hero-image">
+                        <img src="images/Picture 1.png" alt="Digital transformation concept" class="hero-img">
+                    </div>
+                    <div class="hero-content">
+                        <h1 class="hero-title">Your Path. Our Purpose.<span class="highlight-salmon">Empowered Together</span></h1>
+                        <p class="hero-description">Centered on you, our holistic approach is designed to ensure your readiness and success in the tech workforce.</p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary">JOIN US</button>
+                            <button class="btn btn-secondary">PARTNERSHIPS</button>
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
+
+            <!-- Slide 4 - Career Development -->
+            <div class="hero-slide">
+                <div class="hero-container">
+                    <div class="hero-image">
+                        <img src="images/image1-remove.png" alt="Career development journey" class="hero-img">
+                    </div>
+                    <div class="hero-content">
+                        <h1 class="hero-title">Build Your <span class="highlight-salmon">Future</span> Today</h1>
+                        <p class="hero-description">Join over 4, 600 individuals who have transformed their careers through our innovative digital skills development programmes.</p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary">APPLY NOW</button>
+                            <button class="btn btn-secondary">SUCCESS STORIES</button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Slide Indicators -->
+            <div class="slide-indicators">
+                <span class="indicator active" data-slide="0"></span>
+                <span class="indicator" data-slide="1"></span>
+                <span class="indicator" data-slide="2"></span>
+                <span class="indicator" data-slide="3"></span>
+            </div>
+
+            <!-- Navigation Arrows -->
+            <button class="slide-nav prev" id="prevSlide">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="slide-nav next" id="nextSlide">
+                <i class="fas fa-chevron-right"></i>
+            </button>
         </div>
-
-    </div>
-
     </section>
 
 
@@ -82,7 +134,8 @@
             <div class="about-header">
                 <h2 class="section-title">About <span class="highlight-salmon">CAPACITI</span></h2>
                 <p class="section-subtitle">
-                    We are Africa's leading digital skills development organization, committed to empowering individuals and transforming communities through innovative education and strategic partnerships.
+                    We are Africa's leading digital skills development organization, committed to empowering individuals and transforming communities through innovative education 
+                    and strategic partnerships.
                 </p>
             </div>
 
@@ -116,6 +169,16 @@
                     <p>Transforming the future of in South Africa by developing and implementing digital programmes and initiatives.</p>
                 </div>
             </div>
+
+            <h2 class="section-heading">More <span>About Us</span></h2>
+                 <p class="section-subtitle">
+                    Established in 2010, CAPACITI, part of the UVU Africa Group, is at the forefront of preparing young individuals for the tech sector. 
+                    CAPACITI has emerged as one of South Africa’s leading digital talent accelerators, annually training and placing approximately 1000 unemployed youth. 
+                    CAPACITI is dedicated to fostering the inclusive growth of the digital economy by creating a pipeline of future-fit, skilled individuals equipped with relevant
+                    digital skills aligned with industry demand. Since its inception, CAPACITI has been refining solutions that aim to economically integrate talent, by providing 
+                    scalable digital skills training and preparing them for the evolving workplace of the future. As a non-profit organisation, CAPACITI leverages partner investments 
+                    to deliver demand-driven, targeted technical training that positively impacts lives.
+            </p>
 
              <div class="team-section">
                 <h3 class="team-title">Meet Our Team</h3>
@@ -176,7 +239,7 @@
         </div>
     </section>
 
-    <!-- Programmes Section -->
+     <!-- Programmes Section -->
     <section id="programmes" class="programmes">
         <div class="container">
             <div class="programmes-header">
@@ -389,7 +452,7 @@
             <div class="career-guidance">
                 <h3>Not sure which programme is right for you?</h3>
                 <p>Our career advisors are here to help you choose the perfect programme based on your goals, experience and interests.</p>
-                <button class="btn btn-guidance">GET CAREER GUIDANCE</button>
+                <button class="btn-btn-guidance">GET CAREER GUIDANCE</button>
             </div>
         </div>
     </section>
@@ -398,16 +461,16 @@
     <section id="impact" class="impact">
         <div class="container">
             <div class="impact-header">
-                <h2 class="section-title">OUR <span class="highlight-salmon">IMPACT</span></h2>
+                <h2 class="section-title">Our <span class="highlight-salmon">Impact</span></h2>
                 <p class="section-subtitle">
                     At CAPACITI, we believe in more than just closing the skills gap; we believe in opening doors to a world of opportunities.
                     We recognise the transformative power of digital skills and affirm that access to quality education is a fundamental right. 
                     Our commitment goes beyond conventional training – we’re dedicated to nurturing not only technical expertise but also essential life skills.
                 </p>
-                <p class = "subtitle">Join us in this movement, where it’s not just about skills; it’s about rewriting the narrative for tomorrow’s digital leaders, together.</p>
+                 <p class = "subtitle">Join us in this movement, where it’s not just about skills; it’s about rewriting the narrative for tomorrow’s digital leaders, together.</p>
             </div>
 
-            <div class="impact-stats">
+             <div class="impact-stats">
                 <div class="stat-card">
                     <div class="stat-icon">
                         <i class="fas fa-users"></i>
@@ -434,7 +497,7 @@
                 </div>
             </div>
 
-            <div class="impact-stats">
+              <div class="impact-stats">
                 <div class="stat-card">
                     <div class="stat-icon">
                         <i class="fas fa-users"></i>
@@ -462,21 +525,58 @@
             </div>
 
             <div class="impact-stories">
-                <h3>Real Stories, Real Impact</h3>
-                <p>Behind every statistic is a human story of transformation, growth, and success.</p>
+                <h3 class="stories-title">Real Stories, Real Impact</h3>
+                <div class="stories-grid">
+                    <div class="story-card">
+                        <div class="story-content">
+                            <blockquote>
+                                "CAPACITI transformed my career trajectory. From unemployed graduate to full-stack developer at a leading tech company in just 8 months."
+                            </blockquote>
+                            <div class="story-author">
+                                <strong>Sarah Molefe</strong>
+                                <span>Software Developer, TechCorp</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-card">
+                        <div class="story-content">
+                            <blockquote>
+                                "The cybersecurity programme gave me the confidence and skills to protect organizations from digital threats. Today, I lead a security team of 12 people."
+                            </blockquote>
+                            <div class="story-author">
+                                <strong>Michael Nkomo</strong>
+                                <span>Cybersecurity Manager, SecureBank</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-card">
+                        <div class="story-content">
+                            <blockquote>
+                                "The data science track opened doors I never knew existed. I'm now using machine learning to solve real-world business problems."
+                            </blockquote>
+                            <div class="story-author">
+                                <strong>Nomsa Dlamini</strong>
+                                <span>Data Scientist, Analytics Plus</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+            </div>
 
-                <div class="story-images">
+             <div class="impact-stories">
+                <h3>Success Stories</h3>
+                <p>Behind every statistic is a human story of transformation, growth, and success.</p>
+            <div class="story-images">
                     <img src="images/image7.jfif" alt="Story 1">
                     <img src="images/image4.jfif" alt="Story 2">
                     <img src="images/image3.jfif" alt="Story 3">
                     <img src="images/image6.jfif" alt="Story 3">
                     <img src="images/image8.jfif" alt="Story 3">
                     <img src="images/image1.jfif" alt="Story 3">
-                </div>
+            </div>
             </div>
 
-
-          <div class="partners-section">
+            <div class="partners-section">
             <h3>Our Past & Current Partners</h3>
             <div class="logo-slider">
                 <div class="logo-slide-track">
@@ -519,45 +619,81 @@
     <!-- Our Work Section -->
     <section id="work" class="work">
         <div class="container">
-            <h2 class="section-title">Our <span class="highlight-salmon">Work</span></h2>
-            <p class="section-subtitle">
-                Discover our initiatives and projects that are shaping the future of digital education in Africa.
-            </p>
+            <div class="work-header">
+                <h2 class="section-title">Our <span class="highlight-salmon">Work</span></h2>
+                <p class="section-subtitle">
+                    Driving digital transformation through strategic initiatives and community partnerships.
+                </p>
+            </div>
+
             <div class="work-grid">
                 <div class="work-card">
-                    <h3>Corporate Training Programs</h3>
-                    <p>Customized training solutions for enterprises looking to upskill their workforce in digital technologies.</p>
+                    <div class="work-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Skills Development</h3>
+                    <p>Comprehensive training programmes designed to bridge the digital skills gap and prepare individuals for the future of work.</p>
+                    <ul class="work-features">
+                        <li>Industry-aligned curriculum</li>
+                        <li>Hands-on project experience</li>
+                        <li>Mentorship and career guidance</li>
+                        <li>Certification and credentials</li>
+                    </ul>
                 </div>
+
                 <div class="work-card">
+                    <div class="work-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Corporate Partnerships</h3>
+                    <p>Building strategic alliances with leading organizations to create sustainable pathways from education to employment.</p>
+                    <ul class="work-features">
+                        <li>Internship placements</li>
+                        <li>Graduate recruitment</li>
+                        <li>Industry workshops</li>
+                        <li>Career fairs and networking</li>
+                    </ul>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-icon">
+                        <i class="fas fa-globe-africa"></i>
+                    </div>
                     <h3>Community Outreach</h3>
-                    <p>Free digital literacy workshops in underserved communities across South Africa.</p>
-                </div>
-                <div class="work-card">
-                    <h3>Research & Development</h3>
-                    <p>Innovative learning methodologies and curriculum development for emerging technologies.</p>
+                    <p>Extending our reach to underserved communities and ensuring inclusive access to digital opportunities.</p>
+                    <ul class="work-features">
+                        <li>Mobile training units</li>
+                        <li>Community workshops</li>
+                        <li>Digital literacy programs</li>
+                        <li>Rural connectivity initiatives</li>
+                    </ul>
                 </div>
             </div>
-             <!-- Image Slideshow -->
-            <div class="slideshow-container">
-                <div class="slide fade">
-                    <img src="images/image4.jfif" alt="Work Slide 1">
-                </div>
-                <div class="slide fade">
-                    <img src="images/image3.jfif" alt="Work Slide 2">
-                </div>
-                <div class="slide fade">
-                    <img src="images/image6.jfif" alt="Work Slide 3">
-                </div>
-                <div class="slide fade">
-                    <img src="images/image7.jfif" alt="Work Slide 3">
-                </div>
-                <div class="slide fade">
-                    <img src="images/image8.jfif" alt="Work Slide 3">
-                </div>
-                <div class="slide fade">
-                    <img src="images/image5v.jfif" alt="Work Slide 3">
-                </div>
-        
+
+            <!-- Card Slider -->
+            <div class="card-slider">
+            <div class="card-track">
+                <div class="card"><img src="images/image4.jfif" alt="Slide 1"></div>
+                <div class="card"><img src="images/image3.jfif" alt="Slide 2"></div>
+                <div class="card"><img src="images/image6.jfif" alt="Slide 3"></div>
+                <div class="card"><img src="images/image7.jfif" alt="Slide 4"></div>
+                <div class="card"><img src="images/image8.jfif" alt="Slide 5"></div>
+                <div class="card"><img src="images/image5v.jfif" alt="Slide 6"></div>
+
+                <!-- Duplicate for seamless looping -->
+                <div class="card"><img src="images/image4.jfif" alt="Slide 1 clone"></div>
+                <div class="card"><img src="images/image3.jfif" alt="Slide 2 clone"></div>
+                <div class="card"><img src="images/image6.jfif" alt="Slide 3 clone"></div>
+                <div class="card"><img src="images/image7.jfif" alt="Slide 4 clone"></div>
+                <div class="card"><img src="images/image8.jfif" alt="Slide 5 clone"></div>
+                <div class="card"><img src="images/image5v.jfif" alt="Slide 6 clone"></div>
+            </div>
+            </div>
+
+            <div class="work-cta">
+                <h3>Ready to Transform Your Future?</h3>
+                <p>Join thousands of others who have already started their digital transformation journey with CAPACITI.</p>
+                <button class="btn btn-guidance">Get Career Guidance</button>
             </div>
         </div>
     </section>
@@ -565,24 +701,50 @@
     <!-- Opportunities Section -->
     <section id="opportunities" class="opportunities">
         <div class="container">
-            <h2 class="o-section-title">Opportunities</h2>
-            <p class="section-subtitle">
-                Join our mission to transform lives through digital education. Explore career opportunities and partnership possibilities.
-            </p>
+            <div class="opportunities-header">
+                <h2 class="section-title">Growth <span class="highlight-salmon">Opportunities</span></h2>
+                <p class="section-subtitle">
+                    Discover pathways to advance your career, partner with us, or contribute to Africa's digital transformation.
+                </p>
+            </div>
+
             <div class="opportunities-grid">
                 <div class="opportunity-card">
-                    <h3>Join Our Team</h3>
-                    <p>Passionate about education and technology? We're always looking for talented individuals to join our mission.</p>
+                    <div class="opportunity-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Career Opportunities</h3>
+                    <p>Explore exciting career opportunities with our partner organizations across various industries and roles.</p>
+                    <div class="opportunity-stats">
+                        <span class="stat">200+ Active Positions</span>
+                        <span class="stat">50+ Partner Companies</span>
+                    </div>
                     <button class="btn btn-primary">View Openings</button>
                 </div>
+
                 <div class="opportunity-card">
-                    <h3>Partner With Us</h3>
-                    <p>Corporate partnerships that create meaningful impact and address skills gaps in your industry.</p>
+                    <div class="opportunity-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Partnership Opportunities</h3>
+                    <p>Join our network of forward-thinking organizations committed to developing Africa's digital talent pipeline.</p>
+                    <div class="opportunity-stats">
+                        <span class="stat">Corporate Training</span>
+                        <span class="stat">Talent Acquisition</span>
+                    </div>
                     <button class="btn btn-primary">Become a Partner</button>
                 </div>
+
                 <div class="opportunity-card">
-                    <h3>Volunteer Program</h3>
-                    <p>Share your expertise and give back to the community through our mentorship and volunteer programs.</p>
+                    <div class="opportunity-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Volunteer & Mentorship</h3>
+                    <p>Share your expertise and give back to the community by mentoring the next generation of digital professionals.</p>
+                    <div class="opportunity-stats">
+                        <span class="stat">Industry Experts</span>
+                        <span class="stat">Meaningful Impact</span>
+                    </div>
                     <button class="btn btn-primary">Get Involved</button>
                 </div>
             </div>
@@ -592,85 +754,177 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
+            <div class="contact-header">
+                <h2 class="section-title">Get In <span class="highlight-salmon">Touch</span></h2>
+                <p class="section-subtitle">
+                    Ready to start your digital transformation journey? Let's connect and explore how CAPACITI can help you achieve your goals.
+                </p>
+            </div>
+
             <div class="contact-content">
                 <div class="contact-info">
-                  <div class="contact-logo">
-                    <div class="nav2-logo">
-                        <img src="images/Image.jfif" alt="Logo" class="logo2" />
-                        <span class="contact-title">CAPACITI</span>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Our Locations</h4>
+                            <p>97 Durham Avenue, Salt River, Cape Town<br>13th Floor, Hollard City Campus, 19 Ameshoff Rd, Braamfontein, Johannesburg.</p>
+                        </div>
                     </div>
-                  </div>
 
-                    <p class="contact-description">
-                       CAPACITI, a non-profit, transcends traditional digital training by inspiring and mentoring individuals to thrive in the digital world.
-                    </p>
-                    <div class="contact-details">
-                        <h4>Connect with us</h4>
-                        <p><i class="fas fa-phone"></i> (021) 003 7509</p>
-                        <p><i class="fas fa-envelope"></i> hello@capaciti.org.za</p>
-                        <p><i class="fas fa-map-marker-alt"></i> CAPACITI Salt River Campus</p>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email Us</h4>
+                            <p>hello@capaciti.org.za<br>partnerships@capaciti.org.za</p>
+                        </div>
                     </div>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/capacitiza/" class="social-link" title="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="https://x.com/capacitiza" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.linkedin.com/company/capacitiza/" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://www.instagram.com/capacitiza/" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
-                
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Call Us</h4>
+                            <p>(021) 003 7509<br>(021) 003 7572</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-social">
+                        <h4>Follow Us</h4>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/capacitiza/" class="social-link" title="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="https://x.com/capacitiza" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.linkedin.com/company/capacitiza/" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://www.instagram.com/capacitiza/" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
                     </div>
                 </div>
+
                 <div class="contact-form">
-                    <h3>Join our newsletter</h3>
-                    <p>Subscribe to stay updated on our latest programmes and opportunities.</p>
-                    <p>We’re here to help and answer any question you might have. we look forward to hearing from you.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Your email address" required>
-                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    <form class="form"  action="https://formspree.io/f/meokdbnb" method="POST">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Your Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <select required>
+                                <option value="">Select Your Interest</option>
+                                <option value="programmes">Training Programmes</option>
+                                <option value="partnerships">Partnership Opportunities</option>
+                                <option value="careers">Career Guidance</option>
+                                <option value="general">General Inquiry</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
-                </div>
-            </div>
-            <div class="contact-footer">
-                <div class="footer-links">
-                    <a href="#">Programmes Terms & Conditions</a>
-                    <a href="#">Privacy policy</a>
-                    <a href="#">Acceptable Use Policy</a>
-                    <a href="#">Website Terms of use</a>
-                    <a href="#">Cookie policy</a>
-                </div>
-                <div class="footer-verification">
-                    <p>We verify</p>
-                    <div class="verification-badge">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <div id="chatbot-container">
-        <!-- Floating Chat Icon -->
-        <div id="chat-icon" title="Ask Diana">💬</div>
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h3>Stay Updated</h3>
+                <p>Get the latest news about programmes, opportunities, and success stories delivered to your inbox.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-        <!-- Hidden Chat Box -->
-        <div id="chat-box" class="hidden">
-            <div class="chat-header">
-            <strong>CAPACITIBOT</strong>
-            <span class="subtext">Ask me about CAPACITI</span>
-            <button id="close-chat">✖</button>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+            
+                         <img src="images/imagelogo.jfif" alt="Logo" class="logo-img" />
+                        
+                        <p> CAPACITI, a non-profit, transcends traditional digital training by inspiring and mentoring individuals to thrive in the digital world.</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#programmes">Programmes</a></li>
+                        <li><a href="#impact">Our Impact</a></li>
+                        <li><a href="#opportunities">Opportunities</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Programmes</h4>
+                    <ul class="footer-links">
+                        <li><a href="#programmes">Web Development</a></li>
+                        <li><a href="#programmes">Data Science</a></li>
+                        <li><a href="#programmes">Cybersecurity</a></li>
+                        <li><a href="#programmes">Digital Marketing</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/capacitiza/" class="social-link" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://x.com/capacitiza" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/company/capacitiza/" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/capacitiza/" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="footer-contact">
+                        <p>hello@capaciti.org.za</p>
+                        <p>(021) 003 7509</p>
+                    </div>
+                </div>
             </div>
 
-            <div id="chat-content">
+            <div class="footer-bottom">
+                <p>&copy; 2024 CAPACITI. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div id="chat-icon" class="chat-icon">
+        <i class="fas fa-comments"></i>
+    </div>
+
+    <div id="chat-box" class="chat-box hidden">
+        <div class="chat-header">
+            <h4>CAPACITI Assistant</h4>
+            <button id="close-chat" class="close-chat">✖</button>
+        </div>
+        <div id="chat-content" class="chat-content">
             <div class="bot-message">
-                Hello! I'm here to answer any questions about CAPACITI. What would you like to know?
+                Hello! I'm here to help you learn more about CAPACITI. Ask me anything about our programmes, applications, or opportunities!
             </div>
-            </div>
-
-            <div class="chat-input-area">
-            <input type="text" id="chat-input" placeholder="Ask about CAPACITI Programmes..." />
-            <button id="send-btn">➤</button>
-            </div>
+        </div>
+        <div class="chat-input-container">
+            <input type="text" id="chat-input" placeholder="Type your question..." />
+            <button id="send-btn" class="send-btn">
+                <i class="fas fa-paper-plane"></i>
+            </button>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script2.js"></script>
 </body>
 </html>
