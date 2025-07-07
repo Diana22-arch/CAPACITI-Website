@@ -1800,6 +1800,12 @@ section {
     line-height: 1.6;
 }
 
+.logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
 .footer-links {
     list-style: none;
 }
