@@ -62,6 +62,60 @@ programmeCards.forEach(card => {
     card.classList.add('visible');
 });
 
+//Form script for contact form
+document.addEventListener('DOMContentLoaded', () => {
+  const contactForm = document.getElementById('contact-form');
+  if (!contactForm) return;
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(contactForm);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const message = formData.get('message');
+
+    if (!name || !email || !message) {
+      alert('Please fill in all required fields');
+      return;
+    }
+
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const originalText = submitButton.textContent;
+    submitButton.textContent = 'Sending...';
+    submitButton.disabled = true;
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: contactForm.method,
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        alert("Thank you — we'll be in touch soon!");
+        contactForm.reset();
+      } else {
+        const data = await response.json();
+        if (data.errors) {
+          alert('Error: ' + data.errors.map(e => e.message).join(', '));
+        } else {
+          alert('Oops! Something went wrong sending your message.');
+        }
+      }
+    } catch (err) {
+      alert('Oops! Something went wrong sending your message.');
+    } finally {
+      submitButton.textContent = originalText;
+      submitButton.disabled = false;
+    }
+  });
+});
+
+
+// JavaScript for CapacitiHub
+
+
 // Navbar background on scroll
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
@@ -211,86 +265,180 @@ window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
 
-// Smooth reveal animation for hero section
+// Hero Slideshow Functionality
 document.addEventListener('DOMContentLoaded', () => {
-    const heroContent = document.querySelector('.hero-content');
-    const heroImage = document.querySelector('.hero-image');
+    const slides = document.querySelectorAll('.hero-slide');
+    const indicators = document.querySelectorAll('.indicator');
+    const prevBtn = document.getElementById('prevSlide');
+    const nextBtn = document.getElementById('nextSlide');
+    const heroSlider = document.getElementById('hero-slider');
     
-    setTimeout(() => {
-        heroContent.style.opacity = '1';
-        heroContent.style.transform = 'translateY(0)';
-        heroImage.style.opacity = '1';
-        heroImage.style.transform = 'translateX(0)';
-    }, 300);
+    let currentSlide = 0;
+    let slideInterval;
+    let isTransitioning = false;
+
+    // Initialize first slide
+    if (slides.length > 0) {
+        slides[0].classList.add('active');
+        if (indicators.length > 0) {
+            indicators[0].classList.add('active');
+        }
+    }
+
+    // Function to show specific slide
+    function showSlide(index) {
+        if (isTransitioning || index === currentSlide) return;
+        
+        isTransitioning = true;
+        
+        // Remove active class from current slide and indicator
+        slides.forEach(slide => slide.classList.remove('active'));
+        indicators.forEach(indicator => indicator.classList.remove('active'));
+        
+        // Add active class to new slide and indicator
+        slides[index].classList.add('active');
+        if (indicators[index]) {
+            indicators[index].classList.add('active');
+        }
+        
+        currentSlide = index;
+        
+        // Reset transition flag after animation completes
+        setTimeout(() => {
+            isTransitioning = false;
+        }, 800);
+    }
+
+    // Function to go to next slide
+    function nextSlide() {
+        const nextIndex = (currentSlide + 1) % slides.length;
+        showSlide(nextIndex);
+    }
+
+    // Function to go to previous slide
+    function prevSlide() {
+        const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(prevIndex);
+    }
+
+    // Auto-advance slides
+    function startSlideshow() {
+        slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+    }
+
+    // Stop slideshow
+    function stopSlideshow() {
+        clearInterval(slideInterval);
+    }
+
+    // Event listeners for navigation buttons
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            stopSlideshow();
+            nextSlide();
+            startSlideshow();
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            stopSlideshow();
+            prevSlide();
+            startSlideshow();
+        });
+    }
+
+    // Event listeners for indicators
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            stopSlideshow();
+            showSlide(index);
+            startSlideshow();
+        });
+    });
+
+    // Pause slideshow on hover
+    if (heroSlider) {
+        heroSlider.addEventListener('mouseenter', stopSlideshow);
+        heroSlider.addEventListener('mouseleave', startSlideshow);
+    }
+
+    // Start the slideshow
+    startSlideshow();
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            stopSlideshow();
+            prevSlide();
+            startSlideshow();
+        } else if (e.key === 'ArrowRight') {
+            stopSlideshow();
+            nextSlide();
+            startSlideshow();
+        }
+    });
+
+    // Touch/swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    if (heroSlider) {
+        heroSlider.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        heroSlider.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+    }
+
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+            stopSlideshow();
+            if (diff > 0) {
+                nextSlide(); // Swipe left - next slide
+            } else {
+                prevSlide(); // Swipe right - previous slide
+            }
+            startSlideshow();
+        }
+    }
+
+    // Update button text based on current slide
+    function updateButtonText() {
+        const buttons = document.querySelectorAll('.hero-buttons .btn');
+        
+        // Define button text for each slide
+        const slideButtons = [
+            ['GET STARTED', 'LEARN MORE'],
+            ['VIEW PROGRAMMES', 'OUR IMPACT'],
+            ['JOIN US', 'PARTNERSHIPS'],
+            ['APPLY NOW', 'SUCCESS STORIES']
+        ];
+
+        if (buttons.length >= 2 && slideButtons[currentSlide]) {
+            buttons[0].textContent = slideButtons[currentSlide][0];
+            buttons[1].textContent = slideButtons[currentSlide][1];
+        }
+    }
+
+    // Update button text when slide changes
+    const originalShowSlide = showSlide;
+    showSlide = function(index) {
+        originalShowSlide(index);
+        updateButtonText();
+    };
+
+    // Initialize button text
+    updateButtonText();
 });
 
-// Add CSS for initial hero animation
-const style = document.createElement('style');
-style.textContent = `
-    .hero-content, .hero-image {
-        opacity: 0;
-        transition: all 0.8s ease;
-    }
-    
-    .hero-content {
-        transform: translateY(30px);
-    }
-    
-    .hero-image {
-        transform: translateX(30px);
-    }
-    
-    .nav-link.active {
-        color: var(--purple);
-        position: relative;
-    }
-    
-    .nav-link.active::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: var(--purple);
-    }
-    
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-    
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-`;
-document.head.appendChild(style);
-
-let slideIndex = 0;
-
-function showSlides() {
-    const slides = document.getElementsByClassName("slide");
-
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-
-    slideIndex++;
-    if (slideIndex > slides.length) { slideIndex = 1; }
-
-    slides[slideIndex - 1].style.display = "block";
-    setTimeout(showSlides, 4000); // Change image every 4 seconds
-}
-
-// Run the slideshow once the DOM is fully loaded
-document.addEventListener("DOMContentLoaded", function () {
-    showSlides();
-});
-
-// chatbot for CAPACITI
+// Chatbot for CAPACITI
 document.addEventListener("DOMContentLoaded", () => {
   const chatIcon = document.getElementById("chat-icon");
   const chatBox = document.getElementById("chat-box");
@@ -333,14 +481,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function respond(input) {
     const msg = input.toLowerCase();
-    let response = "Sorry, I’m not sure how to answer that. Try asking something else about CAPACITI.";
+    let response = "Sorry, I'm not sure how to answer that. Try asking something else about CAPACITI.";
 
     if (msg.includes("what is capaciti") || msg.includes("about capaciti")) {
       response = "CAPACITI is a skills development programme by the Cape Innovation and Technology Initiative (CiTi) that prepares young South Africans for careers in the digital and tech industries.";
     } else if (msg.includes("who can apply") || msg.includes("requirements") || msg.includes("eligibility")) {
       response = "CAPACITI is open to South African youth who are passionate about technology, especially those with qualifications in ICT, Computer Science, or related fields. Some programmes may require a degree or diploma.";
     } else if (msg.includes("how to apply") || msg.includes("application process")) {
-      response = "You can apply by visiting CAPACITI’s official website and submitting an online application. Follow them on social media for updates on application openings.";
+      response = "You can apply by visiting CAPACITI's official website and submitting an online application. Follow them on social media for updates on application openings.";
     } else if (msg.includes("cost") || msg.includes("free") || msg.includes("pay")) {
       response = "CAPACITI programmes are free to participants. In fact, successful candidates often receive a stipend to assist with travel and meals.";
     } else if (msg.includes("duration") || msg.includes("how long") || msg.includes("length")) {
@@ -349,28 +497,72 @@ document.addEventListener("DOMContentLoaded", () => {
       response = "CAPACITI operates in multiple regions including Cape Town and Johannesburg. Some programmes are remote or hybrid.";
     } else if (msg.includes("contact") || msg.includes("get in touch")) {
       response = "You can contact CAPACITI through the CiTi website: www.citi.org.za, or email info@capaciti.org.za.";
+    } else if (msg.includes("programmes") || msg.includes("how to appply")) {
+      response = "You can apply for multiple CAPACITI programmes while awaiting outcomes. We recommend that you align your choices with your career goals. If you advance to screening in more than one programme, we offer career counseling for your optimal career growth.";
     }
 
     setTimeout(() => appendMessage("bot", response), 500);
   }
 });
-// End of CAPACITI chatbot code
 
+// Blog section functionality
+document.addEventListener('DOMContentLoaded', () => {
+    // Blog read more functionality
+    document.querySelectorAll('.blog-read-more').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const blogTitle = e.target.closest('.blog-card').querySelector('.blog-title').textContent;
+            alert(`Opening blog post: "${blogTitle}"`);
+        });
+    });
 
-//hero section animation
-const slides = document.querySelectorAll('.hero-slide');
-let currentIndex = 0;
+    // View all posts button
+    const viewAllPostsBtn = document.querySelector('.blog-cta .btn');
+    if (viewAllPostsBtn) {
+        viewAllPostsBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Redirecting to full blog page...');
+        });
+    }
 
-function showSlide(index) {
-  slides.forEach(slide => slide.classList.remove('active'));
-  slides[index].classList.add('active');
-}
+    // Event registration functionality
+    document.querySelectorAll('.event-register').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const eventTitle = e.target.closest('.event-card').querySelector('.event-title').textContent;
+            alert(`Registration form for "${eventTitle}" will open soon!`);
+        });
+    });
 
-function nextSlide() {
-  currentIndex = (currentIndex + 1) % slides.length;
-  showSlide(currentIndex);
-  console.log("Showing slide:", currentIndex); 
-}
+    // Press links functionality
+    document.querySelectorAll('.press-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const linkText = e.target.querySelector('span').textContent;
+            alert(`Opening ${linkText} section...`);
+        });
+    });
 
-// Change slide every 5 seconds
-setInterval(nextSlide, 5000);
+    // News card click functionality
+    document.querySelectorAll('.news-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const newsTitle = card.querySelector('.news-title').textContent;
+            alert(`Opening news article: "${newsTitle}"`);
+        });
+        
+        // Add cursor pointer style
+        card.style.cursor = 'pointer';
+    });
+
+    // Blog card click functionality
+    document.querySelectorAll('.blog-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const blogTitle = card.querySelector('.blog-title').textContent;
+            alert(`Opening blog post: "${blogTitle}"`);
+        });
+        
+        // Add cursor pointer style
+        card.style.cursor = 'pointer';
+    });
+});
+
