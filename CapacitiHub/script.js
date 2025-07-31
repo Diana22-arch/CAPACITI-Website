@@ -497,7 +497,7 @@ document.addEventListener("DOMContentLoaded", () => {
       response = "CAPACITI operates in multiple regions including Cape Town and Johannesburg. Some programmes are remote or hybrid.";
     } else if (msg.includes("contact") || msg.includes("get in touch")) {
       response = "You can contact CAPACITI through the CiTi website: www.citi.org.za, or email info@capaciti.org.za.";
-    } else if (msg.includes("programmes") || msg.includes("how to appply")) {
+    } else if (msg.includes("programmes") || msg.includes("how to apply")) {
       response = "You can apply for multiple CAPACITI programmes while awaiting outcomes. We recommend that you align your choices with your career goals. If you advance to screening in more than one programme, we offer career counseling for your optimal career growth.";
     }
 
